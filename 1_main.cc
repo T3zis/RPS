@@ -23,7 +23,8 @@ int main(void)
   const int start_stage = 1, finish_stage = 3;
 
   for (;;) {
-    int choice = 0, num_of_objects = 0;
+    int choice = 0;
+    size_t num_of_objects = 0;
     _utils.choice_check(start_stage, finish_stage, choice);
 
     switch (choice)
@@ -32,7 +33,7 @@ int main(void)
       {
         num_of_objects = _utils.array_size(num_of_objects);
         array_for_sort.resize(num_of_objects);
-        for (int i = 0; i < array_for_sort.size(); i++) {
+        for (size_t i = 0; i < array_for_sort.size(); i++) {
           std::cout << "Введите [" << (i + 1) << "] элемент массива: ";
           array_for_sort[i] = _input.get_int();
         }
@@ -64,11 +65,11 @@ int main(void)
         time_t system_time = time(0);
         std::default_random_engine generated_number(system_time);
         std::uniform_int_distribution<int> range(min_num, max_num);
-        for (int arr_element_index = 0; arr_element_index < num_of_objects; arr_element_index++)
+        for (size_t arr_element_index = 0; arr_element_index < num_of_objects; arr_element_index++)
           array_for_sort[arr_element_index] = range(generated_number);
 
         std::cout << "\n\nИсходный массив:\n";
-        for (int arr_element_index = 0; arr_element_index < num_of_objects; arr_element_index++)
+        for (size_t arr_element_index = 0; arr_element_index < num_of_objects; arr_element_index++)
           std::cout << array_for_sort[arr_element_index] << " ";
         std::cout << "\n";
 
